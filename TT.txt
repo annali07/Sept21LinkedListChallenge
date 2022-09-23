@@ -1,0 +1,5 @@
+apple 2;11
+butterfly 3;11
+cat 3;11
+dog 1;14
+elephant 1;111

@@ -1,0 +1,5 @@
+Once 4;32
+Twice 1:112
+Thrice 5;11
+Quadratic 1;21
+Quin 3;41
