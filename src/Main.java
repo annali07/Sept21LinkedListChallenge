@@ -80,7 +80,7 @@ public class Main {
     System.out.println(computer.getPlayLists().get(0).getName());
     System.out.println("++++++++++");
 
-    play(computer.getPlayLists().get(0).getMyPlayList());
+    play(computer.getPlayLists().get(0).getMyPlayList(), computer.getPlayLists().get(0));
 
 
     
@@ -111,7 +111,7 @@ public class Main {
   }
 
 
-  private static void play(LinkedList<Song> playlist){
+  private static void play(LinkedList<Song> playlist, Playlist playlistName){
 
     
     Scanner scan = new Scanner (System.in);
@@ -130,7 +130,7 @@ public class Main {
     } else {
 
       
-      System.out.println("Now playing " + listIterator.next().toString() ); //turn song object to string //add "from playlist ..."
+      System.out.println("Now playing " + listIterator.next().toString() + " from playlist <" + playlistName.getName() + ">"); //turn song object to string //add "from playlist ..."
 
      
       } 
@@ -138,7 +138,7 @@ public class Main {
 
 
 
-
+      System.out.println();
       printMenu();
       while(!quit){
         int action = scan.nextInt();
@@ -212,6 +212,21 @@ public class Main {
              printMenu();
               break;
 
+          case 6:
+              if(playlist.size()>0){
+                listIterator.remove(); //everytime delete, need to do .next or .previous to avoid error
+                if(listIterator.hasNext()){
+                  System.out.println("Now playing " + listIterator.next());
+                } else if(listIterator.hasPrevious()){
+                  System.out.println("Now playing " + listIterator.previous());
+                }
+
+              } else{
+                System.out.println("There is no more song in the playlist");
+              }
+
+              break;
+
 
 
         }
@@ -227,13 +242,14 @@ public class Main {
   }
 
     private static void printMenu(){
-      System.out.println("Available actions: \n press");
+      System.out.println("Available actions: \npress");
       System.out.println("0 - to quit \n" + 
                 "1 - to play next song \n" + 
                 "2 - to play previous song \n" + 
                 "3 - to replay the current song \n" +
                 "4 - list songs in the playlist\n"+
-                "5 - print available actions.");
+                "5 - print available actions.\n" + 
+                "6 - delete current song from playlist");
        
     }
 
