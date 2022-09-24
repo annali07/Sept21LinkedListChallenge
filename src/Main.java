@@ -61,26 +61,26 @@ public class Main {
    
     // Test Code
 
-    // System.out.println("======================");
+    System.out.println("======================");
    
-    // findSong("butterfly");
+    findSong("butterfly");
 
-    // computer.addSong("TT", "RUN", "1;22");//modify to add a message saying add song failed. 
+    computer.addSong("TT", "RUN", "1;22");//modify to add a message saying add song failed. 
 
-    // computer.addPlayList("Love");
+    computer.addPlayList("Love");
 
-    // computer.addSongToPlayList("Love", "SaveME");
-    // computer.addSongToPlayList("Love", "INEEDU");
+    computer.addSongToPlayList("Love", "SaveME");
+    computer.addSongToPlayList("Love", "INEEDU");
 
-    // computer.addPlayList("JPOP");
+    computer.addPlayList("JPOP");
 
-    // computer.addSongToPlayList("JPOP", "dog");
+    computer.addSongToPlayList("JPOP", "dog");
 
 
-    // System.out.println(computer.getPlayLists().get(0).getName());
-    // System.out.println("++++++++++");
+    System.out.println(computer.getPlayLists().get(0).getName());
+    System.out.println("++++++++++");
 
-    // play(computer.getPlayLists().get(0).getMyPlayList());
+    play(computer.getPlayLists().get(0).getMyPlayList());
 
 
     
