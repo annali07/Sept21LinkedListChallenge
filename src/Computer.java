@@ -70,34 +70,54 @@ public class Computer {
 
   }
 
+
+
+
+
+//DUPLICATED CODE!!! BAD!!!
+
+
   public Song findSong(String songName){
 
-    for(int i = 0; i <albums.size(); i++){
-   
-      Album album = this.albums.get(i);
-     // System.out.println(albums.get(i).getAlbumName());
-      
-        for (int j =0; j< album.getSongs().size(); j++){
-      //    System.out.println(album.getSongs().get(j).getName());
+    for(Album album : this.albums){
+     
+      for(Song song: album.getSongs()){
+        
+        if (song.getName().equals(songName)){
+           //fix!!!!!!!!!!!!
 
-          if(album.getSongs().get(j).getName().equals(songName)){
-              
-            System.out.println("Song " + album.getSongs().get(j).getName() + " found in album " + album.getAlbumName());
-            
-            
-            return album.getSongs().get(j);
-
-
-          }
+          return song;
         }
-   
+      }
 
     }
-   
-    //System.out.println("Song " + songName + " not found.");
+
+   // System.out.println("Song " + songName + " not found.");
     return null;
     
   }
+
+
+  public Album findAlbumFromSong(String songName){
+    for(Album album : this.albums){
+     
+      for(Song song: album.getSongs()){
+        
+        if (song.getName().equals(songName)){
+           //fix!!!!!!!!!!!!
+
+          return album;
+        }
+      }
+
+    }
+
+   // System.out.println("Song " + songName + " not found.");
+    return null;
+  }
+
+
+
 
 
   public boolean addSongToPlayList(String playListName, String name){
@@ -105,51 +125,60 @@ public class Computer {
     if(!findPlayList(playListName)){
 
       if(!(findSong(name) == null)){
-        for (int i = 0; i<playLists.size(); i++){
-        if (playLists.get(i).getName().equals(playListName)){
-          playLists.get(i).addPlayList(findSong(name));
-          System.out.println("Song " + name + " added to playlist " + playListName);
-          return true;
-        }
-      }
+        
+        for (Playlist playlist : playLists){
 
+          if (playlist.getName().equals(playListName)){
+            playlist.addPlayList(findSong(name));
+
+           System.out.println("Song " + name + " added to playlist " + playListName);
+
+            return true;
+          }
+
+        }
 
       } else {
-        System.out.println("Song " + name + " not found");
+        System.out.println("Song " + name + " not found in all albums.");
         return false;
-       }
+      }
     
 
     }
     
-    System.out.println("Playlist " + playListName + " not found");
+    System.out.println("Playlist " + playListName + " not found.");
     return false;
   }
   
+
+
+
+
+
+
+
 
 
   public boolean addPlayList(String name){
     if(findPlayList(name)){
      
       this.playLists.add(new Playlist(name));
+      System.out.println(name + " playlist added.");
       return true;
     }
     return false;
   }
 
-
-
   public boolean findPlayList(String name){
 
-    for (int i = 0; i<this.playLists.size(); i++){
-
-      if ( this.playLists.get(i).getName().equals(name)){
+    for(Playlist playlist : this.playLists){
+      if (playlist.getName().equals(name)){
         return false;
+
       }
     }
-
+   
     return true;
-    
 
   }
 

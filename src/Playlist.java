@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class Playlist {
 
   private String name;
-  private LinkedList<Song> myPlayList; // = ;
+  private LinkedList<Song> myPlayList; 
 
 
   public Playlist(String name) {
@@ -23,6 +23,7 @@ public class Playlist {
   public void addPlayList(Song song){
     this.myPlayList.add(song);
   }
+
 
   
 }

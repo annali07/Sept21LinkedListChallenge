@@ -3,10 +3,12 @@ import java.util.ArrayList;
 public class Album {
 
   private String albumName;
+ // private String artist;
   private ArrayList<Song> songs;
   
   public Album(String albumName) {
     this.albumName = albumName;
+    //this.artist = artist;
 
 
     this.songs = new ArrayList<>();
@@ -22,30 +24,28 @@ public class Album {
     return this.songs;
   }
 
- 
-
-
   public boolean addSong(String songName, String duration){
 
-      songs.add(new Song(songName, duration));
+      if (findSong(songName) == null) {
+
+      this.songs.add(new Song(songName, duration));
       System.out.print("Song " + songName + "\t" + duration + " added");
       return true;    
-
+      }
+      return false;
     
   }
+
+  private Song findSong(String title){
+
+    for(Song checkedSong: this.songs){ //go through a list of entries. For each command. Create a variable checkedSong for every entry on the songs arrayList
+      if(checkedSong.getName().equals(title)){
+        return checkedSong;
+      }
+
+    }
+    return null;
+  }
   
-  //Modify to when found a song, not add. Instead of not find a song, add
-
-  // private Song findSong (String songName){
-  //   for (int i = 0; i<songs.size(); i++){
-  //     Song song = this.songs.get(i);
-  //     if(song.getName().equals(songName)){
-  //       return song;
-  //     }
-  //   }
-  //   return null; //??????????????
-  // }
-
-
 
 }

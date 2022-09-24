@@ -16,5 +16,12 @@ public class Song {
     return this.duration;
   }
 
+  // toString - print out contents of the Class
+
+  @Override //what was this again
+  public String toString(){
+    return this.name + ": " + this.duration;
+  }
+
   
 }
